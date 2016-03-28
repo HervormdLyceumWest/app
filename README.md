@@ -1,2 +1,5 @@
 # HervormdLyceumWest
-Mobile app for www.hlw.nl - made with ionic 1.2.4 www.ionicframework.com
+Mobile app made for Hervormd Lyceum West, made with the ionic framework version 1.2.4
+
+www.hlw.nl
+www.ionicframework.com
