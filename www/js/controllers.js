@@ -131,13 +131,6 @@ angular.module('app.controllers', [])
 
 }) // Close controller
    
-.controller('overCtrl', function($scope) {
-
-  // Set HLW logo
-  $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
-
-})
-   
 .controller('agendaCtrl', function($scope) {
 
   // Set HLW logo
@@ -145,7 +138,7 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('inschrijvenCtrl', function($scope) {
+.controller('informatieCtrl', function($scope) {
 
   // Set HLW logo
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";

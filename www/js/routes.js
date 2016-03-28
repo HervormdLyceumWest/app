@@ -22,12 +22,6 @@ $ionicConfigProvider.tabs.position('bottom'); //top
     }
   })
 
-  .state('over', {
-    url: '/over',
-    templateUrl: 'templates/over.html',
-    controller: 'overCtrl'
-  })
-
   .state('tabsController.agenda', {
     url: '/agenda',
     views: {
@@ -38,12 +32,12 @@ $ionicConfigProvider.tabs.position('bottom'); //top
     }
   })
 
-  .state('tabsController.inschrijven', {
-    url: '/inschrijven',
+  .state('tabsController.informatie', {
+    url: '/informatie',
     views: {
       'tab3': {
-        templateUrl: 'templates/inschrijven.html',
-        controller: 'inschrijvenCtrl'
+        templateUrl: 'templates/informatie.html',
+        controller: 'informatieCtrl'
       }
     }
   })
