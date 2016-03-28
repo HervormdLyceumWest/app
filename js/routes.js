@@ -38,11 +38,11 @@ $ionicConfigProvider.tabs.position('bottom'); //top
     }
   })
 
-  .state('tabsController.inschrijven', {
-    url: '/inschrijven',
+  .state('tabsController.informatie', {
+    url: '/informatie',
     views: {
       'tab3': {
-        templateUrl: 'templates/inschrijven.html',
+        templateUrl: 'templates/informatie.html',
         controller: 'inschrijvenCtrl'
       }
     }
