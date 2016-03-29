@@ -6,16 +6,24 @@ body{
 #hlw-red{
     background-color: #c20e1a !important;
     padding-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 #hlw-purple{
     background-color: #ad3587 !important;
     padding-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 #hlw-yellow{
     background-color: #f0c714 !important;
     padding-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 #hlw-blue{
     background-color: #2e3d8b !important;
     padding-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
