@@ -31,9 +31,6 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-  function initMap() {
-    var index=0;
-
   var options = {timeout: 10000, enableHighAccuracy: true};
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
  
@@ -115,29 +112,6 @@ google.maps.event.addDomListener(window, 'load', initMap);
 
 
 
-
-
-  ////////////////////////////////////////////////////
-  ////////////Testing GEO support msgs///////////////
-  //////////////////////////////////////////////////
-/*
-  if(!!navigator.geolocation) {
-
-    // HTML5 geo location supported
-    console.log("HTML5 geo location supported");
-    var alertPopup = $ionicPopup.alert({
-      title: 'HTML5 geo support',
-      template: 'Yes'
-    });
-  } else {
-    // HTML5 geo location supported
-    console.log("HTML5 geo location NOT supported");
-    var alertPopup = $ionicPopup.alert({
-      title: 'HTML5 geo support',
-      template: 'No'
-    });
-  }
- */
 
 }) // Close controller
    
