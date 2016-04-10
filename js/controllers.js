@@ -54,13 +54,6 @@ angular.module('app.controllers', [])
       }
     };
 
-  map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-      
-
-google.maps.event.addDomListener(window, 'load', initMap);
-
-
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
   }); // Close Cordova Geolocation
   
