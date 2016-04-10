@@ -31,25 +31,35 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
+<<<<<<< HEAD
   function initMap() {
     var index=0;
+=======
+
+  var options = {timeout: 10000, enableHighAccuracy: true};
+  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+ 
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+>>>>>>> parent of ff6d609... Update controllers.js
     var mapOptions = {
-       center: {lat: 52.362398, lng: 4.825519},
-      zoom: 12, //19
-      scrollwheel: false,
-      navigationControl: false,
-      mapTypeControl: false,
-      scaleControl: false,
-      draggable: false,
-      disableDefaultUI: true,
-      mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-        mapTypeIds: [
-          google.maps.MapTypeId.ROADMAP,
-          google.maps.MapTypeId.TERRAIN
+    center: {lat: 52.362398, lng: 4.825519},
+    zoom: 19,
+    scrollwheel: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: true,
+    disableDefaultUI: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      mapTypeIds: [
+        google.maps.MapTypeId.ROADMAP,
+        google.maps.MapTypeId.TERRAIN
         ]
       }
     };
+<<<<<<< HEAD
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
       
@@ -62,6 +72,83 @@ google.maps.event.addDomListener(window, 'load', initMap);
 
 
 
+=======
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  }); // Close Cordova Geolocation
+  
+
+  //////////////////////////////////////
+  ////////////geolocation///////////////
+  //////////////////////////////////////
+
+  // Try HTML5 geolocation.
+  //http://jsfiddle.net/thinkingstiff/rsp22/
+  marker = null;
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+  time=setInterval(function(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position,options) {
+
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        if(marker == null) {
+          marker=new google.maps.Marker({
+            position:pos,
+            map:map,
+            optimized:false,
+            icon:'img/Blue_Ball.png'
+         })
+        }
+      marker.setPosition(pos);
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+        
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+    }
+  },3000);
+
+
+
+
+
+  ////////////////////////////////////////////////////
+  ////////////Testing GEO support msgs///////////////
+  //////////////////////////////////////////////////
+/*
+  if(!!navigator.geolocation) {
+
+    // HTML5 geo location supported
+    console.log("HTML5 geo location supported");
+    var alertPopup = $ionicPopup.alert({
+      title: 'HTML5 geo support',
+      template: 'Yes'
+    });
+  } else {
+    // HTML5 geo location supported
+    console.log("HTML5 geo location NOT supported");
+    var alertPopup = $ionicPopup.alert({
+      title: 'HTML5 geo support',
+      template: 'No'
+    });
+  }
+ */
+
+>>>>>>> parent of ff6d609... Update controllers.js
 }) // Close controller
    
 .controller('agendaCtrl', function($scope) {
