@@ -31,17 +31,14 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-<<<<<<< HEAD
   function initMap() {
     var index=0;
-=======
 
   var options = {timeout: 10000, enableHighAccuracy: true};
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
  
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
  
->>>>>>> parent of ff6d609... Update controllers.js
     var mapOptions = {
     center: {lat: 52.362398, lng: 4.825519},
     zoom: 19,
@@ -59,20 +56,14 @@ angular.module('app.controllers', [])
         ]
       }
     };
-<<<<<<< HEAD
+
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
       
 
-
-
 google.maps.event.addDomListener(window, 'load', initMap);
 
 
-
-
-
-=======
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
   }); // Close Cordova Geolocation
   
@@ -148,7 +139,6 @@ google.maps.event.addDomListener(window, 'load', initMap);
   }
  */
 
->>>>>>> parent of ff6d609... Update controllers.js
 }) // Close controller
    
 .controller('agendaCtrl', function($scope) {
