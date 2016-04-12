@@ -104,69 +104,7 @@ angular.module('app.controllers', [])
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
-      
-      //////////////////////////////////////
-      ////////////overlay//////////////////
-      /////////////////////////////////////
-
-    var bounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(52.362200, 4.82440),
-      new google.maps.LatLng(52.362605, 4.825910));
-
-    // The photograph is courtesy of the U.S. Geological Survey.
-    var srcImage = 'img/2-A.png';
-
-    // The custom USGSOverlay object contains the USGS image,
-    // the bounds of the image, and a reference to the map.
-    overlay = new USGSOverlay(bounds, srcImage, map);
-    
-/** @constructor */
-  function USGSOverlay(bounds, image, map) {
-
-    // Initialize all properties.
-    this.bounds_ = bounds;
-    this.image_ = image;
-    this.map_ = map;
-
-    // Define a property to hold the image's div. We'll
-    // actually create this div upon receipt of the onAdd()
-    // method so we'll leave it null for now.
-    this.div_ = null;
-
-    // Explicitly call setMap on this overlay.
-    this.setMap(map);
-  }
-
-  USGSOverlay.prototype.onAdd = function() {
-
-    var div = document.createElement('div');
-    div.style.borderStyle = 'none';
-    div.style.borderWidth = '0px';
-    div.style.position = 'absolute';
-
-    // Create the img element and attach it to the div.
-    var img = document.createElement('img');
-    img.src = this.image_;
-    img.style.width = '100%';
-    img.style.height = '100%';
-    img.style.position = 'absolute';
-    div.appendChild(img);
-
-    this.div_ = div;
-
-    // Add the element to the "overlayLayer" pane.
-    var panes = this.getPanes();
-    panes.overlayLayer.appendChild(div);
-  };
-
-  
-  
-
-
-
-
-
-
+     
 
 
 
