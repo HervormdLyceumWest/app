@@ -36,7 +36,7 @@ angular.module('app.controllers', [])
     var index=0;
     var mapOptions = {
        center: {lat: 52.362398, lng: 4.825519},
-      zoom: 12, //19
+      zoom: 19, //19
       scrollwheel: false,
       navigationControl: false,
       mapTypeControl: false,
