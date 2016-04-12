@@ -119,7 +119,7 @@ angular.module('app.controllers', [])
     // The custom USGSOverlay object contains the USGS image,
     // the bounds of the image, and a reference to the map.
     overlay = new USGSOverlay(bounds, srcImage, map);
-    }
+    
 
 
 
