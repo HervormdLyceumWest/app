@@ -82,7 +82,7 @@ angular.module('app.controllers', [])
               position:pos,
               map:map,
               optimized:false,
-              icon:'media/Blue_Ball.png'
+              icon:'img/Blue_Ball.png'
            })
           }
           marker.setPosition(pos);
@@ -113,7 +113,7 @@ angular.module('app.controllers', [])
       new google.maps.LatLng(52.362605, 4.825910));
 
     // The photograph is courtesy of the U.S. Geological Survey.
-    var srcImage = 'media/2-A.png';
+    var srcImage = 'img/2-A.png';
 
     // The custom USGSOverlay object contains the USGS image,
     // the bounds of the image, and a reference to the map.
@@ -198,7 +198,7 @@ angular.module('app.controllers', [])
 
 
 
-  
+
 }) // Close controller
    
 .controller('agendaCtrl', function($scope) {
