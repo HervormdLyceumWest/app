@@ -180,14 +180,7 @@ angular.module('app.controllers', [])
     div.style.height = (sw.y - ne.y) + 'px';
   };
 
-  // The onRemove() method will be called automatically from the API if
-  // we ever set the overlay's map property to 'null'.
-  USGSOverlay.prototype.onRemove = function() {
-    this.div_.parentNode.removeChild(this.div_);
-    this.div_ = null;
-  };
 
-  google.maps.event.addDomListener(window, 'load', initMap);
 
 
 
