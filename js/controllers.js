@@ -105,13 +105,27 @@ angular.module('app.controllers', [])
                               'Error: Your browser doesn\'t support geolocation.');
       }
       
+      //////////////////////////////////////
+      ////////////overlay//////////////////
+      /////////////////////////////////////
+
+    var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(52.362200, 4.82440),
+      new google.maps.LatLng(52.362605, 4.825910));
+
+    // The photograph is courtesy of the U.S. Geological Survey.
+    var srcImage = 'img/2-A.png';
+
+    // The custom USGSOverlay object contains the USGS image,
+    // the bounds of the image, and a reference to the map.
+    overlay = new USGSOverlay(bounds, srcImage, map);
+    }
 
 
 
 
 
 
-      
 }) // Close controller
    
 .controller('agendaCtrl', function($scope) {
