@@ -82,6 +82,7 @@ angular.module('app.controllers', [])
 
             if(marker == null) {
               marker=new google.maps.Marker({
+                position:pos,
                 map:map,
                 optimized:false,
                 icon:'media/Blue_Ball.png'
