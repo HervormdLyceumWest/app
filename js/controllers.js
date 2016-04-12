@@ -81,6 +81,7 @@ angular.module('app.controllers', [])
                             'Error: Your browser doesn\'t support geolocation.');
     }
   },3000);
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -244,6 +245,10 @@ angular.module('app.controllers', [])
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
+=======
+
+
+>>>>>>> parent of f758d9d... Update getposition to watchposition
 
       google.maps.event.addDomListener(window, 'load', initMap);
 
