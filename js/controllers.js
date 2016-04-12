@@ -75,7 +75,57 @@ angular.module('app.controllers', [])
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
+<<<<<<< HEAD
 >>>>>>> parent of 5036996... media/ to img/
+=======
+          
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+      
+      //////////////////////////////////////
+      ////////////overlay//////////////////
+      /////////////////////////////////////
+
+    var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(52.362200, 4.82440),
+      new google.maps.LatLng(52.362605, 4.825910));
+
+    // The photograph is courtesy of the U.S. Geological Survey.
+    var srcImage = 'img/2-A.png';
+
+    // The custom USGSOverlay object contains the USGS image,
+    // the bounds of the image, and a reference to the map.
+    overlay = new USGSOverlay(bounds, srcImage, map);
+    
+/** @constructor */
+  function USGSOverlay(bounds, image, map) {
+
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
+
+    // Define a property to hold the image's div. We'll
+    // actually create this div upon receipt of the onAdd()
+    // method so we'll leave it null for now.
+    this.div_ = null;
+
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+  }
+
+
+
+
+
+
+
+>>>>>>> parent of 8b502cb... add all overlay
 
 
 }) // Close controller
