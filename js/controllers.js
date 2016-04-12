@@ -120,6 +120,25 @@ angular.module('app.controllers', [])
     // the bounds of the image, and a reference to the map.
     overlay = new USGSOverlay(bounds, srcImage, map);
     
+/** @constructor */
+  function USGSOverlay(bounds, image, map) {
+
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
+
+    // Define a property to hold the image's div. We'll
+    // actually create this div upon receipt of the onAdd()
+    // method so we'll leave it null for now.
+    this.div_ = null;
+
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+  }
+
+
+
 
 
 
