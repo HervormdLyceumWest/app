@@ -178,7 +178,7 @@ angular.module('app.controllers', [])
     div.style.top = ne.y + 'px';
     div.style.width = (ne.x - sw.x) + 'px';
     div.style.height = (sw.y - ne.y) + 'px';
-  };
+  
 
 
 
