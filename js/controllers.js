@@ -343,7 +343,7 @@ angular.module('app.controllers', [])
   });
   }//end button floor 3
 
-
+}
 
 }) // Close controller
    
