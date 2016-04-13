@@ -8,12 +8,25 @@ angular.module('app.controllers', [])
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
-  
-  
+  $scope.showFirstFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });
+  }
+  $scope.showSecondFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showSecondFloor()',
+       template: 'Function activated.'
+    });
+  }
+  $scope.showThirdFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showThirdFloor()',
+       template: 'Function activated.'
+    });
+  }
 
-  
-    
-  
 
      var overlay;
       USGSOverlay.prototype = new google.maps.OverlayView();
@@ -95,255 +108,156 @@ angular.module('app.controllers', [])
       ////////////overlay//////////////////
       /////////////////////////////////////
 
-    ///////button first floor/////////
-    $scope.showFirstFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showFirstFloor()',
-       template: 'Function activated.'
-  
-	    var bounds = new google.maps.LatLngBounds(
-	      new google.maps.LatLng(52.362200, 4.82440),
-	      new google.maps.LatLng(52.362605, 4.825910));
+    var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(52.362200, 4.82440),
+      new google.maps.LatLng(52.362605, 4.825910));
 
-	    // The photograph is courtesy of the U.S. Geological Survey.
-	    var srcImage = 'img/2e_verdieping.png';
+    // The photograph is courtesy of the U.S. Geological Survey.
+    var srcImage = 'img/2e_verdieping.png';
 
-	    overlay = new USGSOverlay(bounds, srcImage, map);
-	    }
+    // The custom USGSOverlay object contains the USGS image,
+    // the bounds of the image, and a reference to the map.
+    overlay = new USGSOverlay(bounds, srcImage, map);
+    }
 
-	  /** @constructor */
-	  function USGSOverlay(bounds, image, map) {
+  /** @constructor */
+  function USGSOverlay(bounds, image, map) {
 
-	    // Initialize all properties.
-	    this.bounds_ = bounds;
-	    this.image_ = image;
-	    this.map_ = map;
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
 
-	    this.div_ = null;
+    // Define a property to hold the image's div. We'll
+    // actually create this div upon receipt of the onAdd()
+    // method so we'll leave it null for now.
+    this.div_ = null;
 
-	    // Explicitly call setMap on this overlay.
-	    this.setMap(map);
-	  }
-
-
-	  USGSOverlay.prototype.onAdd = function() {
-
-	    var div = document.createElement('div');
-	    div.style.borderStyle = 'none';
-	    div.style.borderWidth = '0px';
-	    div.style.position = 'absolute';
-
-	    // Create the img element and attach it to the div.
-	    var img = document.createElement('img');
-	    img.src = this.image_;
-	    img.style.width = '100%';
-	    img.style.height = '100%';
-	    img.style.position = 'absolute';
-	    div.appendChild(img);
-
-	    this.div_ = div;
-
-	    // Add the element to the "overlayLayer" pane.
-	    var panes = this.getPanes();
-	    panes.overlayLayer.appendChild(div);
-	  };
-
-	  USGSOverlay.prototype.draw = function() {
-
-	    var overlayProjection = this.getProjection();
-
-	    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
-	    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
-
-	    // Resize the image's div to fit the indicated dimensions.
-	    var div = this.div_;
-	    div.style.left = sw.x + 'px';
-	    div.style.top = ne.y + 'px';
-	    div.style.width = (ne.x - sw.x) + 'px';
-	    div.style.height = (sw.y - ne.y) + 'px';
-	  };
-
-	  // The onRemove() method will be called automatically from the API if
-	  // we ever set the overlay's map property to 'null'.
-	  USGSOverlay.prototype.onRemove = function() {
-	    this.div_.parentNode.removeChild(this.div_);
-	    this.div_ = null;
-	  };
-
-	  google.maps.event.addDomListener(window, 'load', initMap);
-
-  });
-  }//end button floor 1
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+  }
 
 
- ///////button second floor/////////
-    $scope.showSecondFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showSecondFloor()',
-       template: 'Function activated.'
-  
-	    var bounds = new google.maps.LatLngBounds(
-	      new google.maps.LatLng(52.362200, 4.82440),
-	      new google.maps.LatLng(52.362605, 4.825910));
+  USGSOverlay.prototype.onAdd = function() {
 
-	    // The photograph is courtesy of the U.S. Geological Survey.
-	    var srcImage = 'img/2e_verdieping.png';
+    var div = document.createElement('div');
+    div.style.borderStyle = 'none';
+    div.style.borderWidth = '0px';
+    div.style.position = 'absolute';
 
-	    overlay = new USGSOverlay(bounds, srcImage, map);
-	    }
+    // Create the img element and attach it to the div.
+    var img = document.createElement('img');
+    img.src = this.image_;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.position = 'absolute';
+    div.appendChild(img);
 
-	  /** @constructor */
-	  function USGSOverlay(bounds, image, map) {
+    this.div_ = div;
 
-	    // Initialize all properties.
-	    this.bounds_ = bounds;
-	    this.image_ = image;
-	    this.map_ = map;
+    // Add the element to the "overlayLayer" pane.
+    var panes = this.getPanes();
+    panes.overlayLayer.appendChild(div);
+  };
 
-	    this.div_ = null;
+  USGSOverlay.prototype.draw = function() {
 
-	    // Explicitly call setMap on this overlay.
-	    this.setMap(map);
-	  }
+    var overlayProjection = this.getProjection();
 
+    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-	  USGSOverlay.prototype.onAdd = function() {
-
-	    var div = document.createElement('div');
-	    div.style.borderStyle = 'none';
-	    div.style.borderWidth = '0px';
-	    div.style.position = 'absolute';
-
-	    // Create the img element and attach it to the div.
-	    var img = document.createElement('img');
-	    img.src = this.image_;
-	    img.style.width = '100%';
-	    img.style.height = '100%';
-	    img.style.position = 'absolute';
-	    div.appendChild(img);
-
-	    this.div_ = div;
-
-	    // Add the element to the "overlayLayer" pane.
-	    var panes = this.getPanes();
-	    panes.overlayLayer.appendChild(div);
-	  };
-
-	  USGSOverlay.prototype.draw = function() {
+    // Resize the image's div to fit the indicated dimensions.
+    var div = this.div_;
+    div.style.left = sw.x + 'px';
+    div.style.top = ne.y + 'px';
+    div.style.width = (ne.x - sw.x) + 'px';
+    div.style.height = (sw.y - ne.y) + 'px';
+  };
 
 
-	    var overlayProjection = this.getProjection();
+  USGSOverlay.prototype.onRemove = function() {
+    this.div_.parentNode.removeChild(this.div_);
+    this.div_ = null;
+  };
 
-	    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
-	    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
-
-	    // Resize the image's div to fit the indicated dimensions.
-	    var div = this.div_;
-	    div.style.left = sw.x + 'px';
-	    div.style.top = ne.y + 'px';
-	    div.style.width = (ne.x - sw.x) + 'px';
-	    div.style.height = (sw.y - ne.y) + 'px';
-	  };
-
-	  // The onRemove() method will be called automatically from the API if
-	  // we ever set the overlay's map property to 'null'.
-	  USGSOverlay.prototype.onRemove = function() {
-	    this.div_.parentNode.removeChild(this.div_);
-	    this.div_ = null;
-	  };
-
-	  google.maps.event.addDomListener(window, 'load', initMap);
-
-  });
-  }//end button floor 2
+  google.maps.event.addDomListener(window, 'load', initMap);
 
 
-///////button third floor/////////
-	$scope.showThirdFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showThirdFloor()',
-       template: 'Function activated.'
-  
-	    var bounds = new google.maps.LatLngBounds(
-	      new google.maps.LatLng(52.362200, 4.82440),
-	      new google.maps.LatLng(52.362605, 4.825910));
-
-	    // The photograph is courtesy of the U.S. Geological Survey.
-	    var srcImage = 'img/2e_verdieping.png';
-
-	    // The custom USGSOverlay object contains the USGS image,
-	    // the bounds of the image, and a reference to the map.
-	    overlay = new USGSOverlay(bounds, srcImage, map);
-	    }
-
-	  /** @constructor */
-	  function USGSOverlay(bounds, image, map) {
-
-	    // Initialize all properties.
-	    this.bounds_ = bounds;
-	    this.image_ = image;
-	    this.map_ = map;
-
-	   
-	    this.div_ = null;
-
-	    // Explicitly call setMap on this overlay.
-	    this.setMap(map);
-	  }
 
 
-	  USGSOverlay.prototype.onAdd = function() {
+ var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(52.362200, 4.82440),
+      new google.maps.LatLng(52.362605, 4.825910));
 
-	    var div = document.createElement('div');
-	    div.style.borderStyle = 'none';
-	    div.style.borderWidth = '0px';
-	    div.style.position = 'absolute';
+    // The photograph is courtesy of the U.S. Geological Survey.
+    var srcImage = 'img/2e_verdieping.png';
 
-	   
-	    var img = document.createElement('img');
-	    img.src = this.image_;
-	    img.style.width = '100%';
-	    img.style.height = '100%';
-	    img.style.position = 'absolute';
-	    div.appendChild(img);
+    overlay = new USGSOverlay(bounds, srcImage, map);
+    }
 
-	    this.div_ = div;
+  /** @constructor */
+  function USGSOverlay(bounds, image, map) {
 
-	    // Add the element to the "overlayLayer" pane.
-	    var panes = this.getPanes();
-	    panes.overlayLayer.appendChild(div);
-	  };
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
 
-	  USGSOverlay.prototype.draw = function() {
+    this.div_ = null;
 
-	    
-	    var overlayProjection = this.getProjection();
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+  }
 
-	   
-	    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
-	    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-	    // Resize the image's div to fit the indicated dimensions.
-	    var div = this.div_;
-	    div.style.left = sw.x + 'px';
-	    div.style.top = ne.y + 'px';
-	    div.style.width = (ne.x - sw.x) + 'px';
-	    div.style.height = (sw.y - ne.y) + 'px';
-	  };
+  USGSOverlay.prototype.onAdd = function() {
 
-	  // The onRemove() method will be called automatically from the API if
-	  // we ever set the overlay's map property to 'null'.
-	  USGSOverlay.prototype.onRemove = function() {
-	    this.div_.parentNode.removeChild(this.div_);
-	    this.div_ = null;
-	  };
+    var div = document.createElement('div');
+    div.style.borderStyle = 'none';
+    div.style.borderWidth = '0px';
+    div.style.position = 'absolute';
 
-	  google.maps.event.addDomListener(window, 'load', initMap);
+    // Create the img element and attach it to the div.
+    var img = document.createElement('img');
+    img.src = this.image_;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.position = 'absolute';
+    div.appendChild(img);
 
-  });
-  }//end button floor 3
+    this.div_ = div;
 
-}
+    // Add the element to the "overlayLayer" pane.
+    var panes = this.getPanes();
+    panes.overlayLayer.appendChild(div);
+  };
+
+  USGSOverlay.prototype.draw = function() {
+
+    var overlayProjection = this.getProjection();
+
+    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+    // Resize the image's div to fit the indicated dimensions.
+    var div = this.div_;
+    div.style.left = sw.x + 'px';
+    div.style.top = ne.y + 'px';
+    div.style.width = (ne.x - sw.x) + 'px';
+    div.style.height = (sw.y - ne.y) + 'px';
+  };
+
+  USGSOverlay.prototype.onRemove = function() {
+    this.div_.parentNode.removeChild(this.div_);
+    this.div_ = null;
+  };
+
+  google.maps.event.addDomListener(window, 'load', initMap);
+
+
+
+
 
 }) // Close controller
    
