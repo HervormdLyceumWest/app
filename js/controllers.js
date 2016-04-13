@@ -115,8 +115,6 @@ angular.module('app.controllers', [])
     // The photograph is courtesy of the U.S. Geological Survey.
     var srcImage = 'img/2-A.png';
 
-    // The custom USGSOverlay object contains the USGS image,
-    // the bounds of the image, and a reference to the map.
     overlay = new USGSOverlay(bounds, srcImage, map);
     }
 
@@ -128,9 +126,6 @@ angular.module('app.controllers', [])
     this.image_ = image;
     this.map_ = map;
 
-    // Define a property to hold the image's div. We'll
-    // actually create this div upon receipt of the onAdd()
-    // method so we'll leave it null for now.
     this.div_ = null;
 
     // Explicitly call setMap on this overlay.
@@ -162,14 +157,9 @@ angular.module('app.controllers', [])
 
   USGSOverlay.prototype.draw = function() {
 
-    // We use the south-west and north-east
-    // coordinates of the overlay to peg it to the correct position and size.
-    // To do this, we need to retrieve the projection from the overlay.
+
     var overlayProjection = this.getProjection();
 
-    // Retrieve the south-west and north-east coordinates of this overlay
-    // in LatLngs and convert them to pixel coordinates.
-    // We'll use these coordinates to resize the div.
     var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
     var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
@@ -181,8 +171,7 @@ angular.module('app.controllers', [])
     div.style.height = (sw.y - ne.y) + 'px';
   };
 
-  // The onRemove() method will be called automatically from the API if
-  // we ever set the overlay's map property to 'null'.
+
   USGSOverlay.prototype.onRemove = function() {
     this.div_.parentNode.removeChild(this.div_);
     this.div_ = null;
