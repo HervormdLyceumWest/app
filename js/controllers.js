@@ -8,6 +8,7 @@ angular.module('app.controllers', [])
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
+ 
   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showSecondFloor()',
@@ -21,15 +22,16 @@ angular.module('app.controllers', [])
     });
   }
 
-  $scope.showFirstFloor = function() {
+
+   $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });   
-  }  
+}  
 
-  var overlay;
-    USGSOverlay.prototype = new google.maps.OverlayView();
+var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
 
       // Initialize the map and the custom overlay.
   function initMap() {
@@ -51,7 +53,7 @@ angular.module('app.controllers', [])
         ]
       }
     };
-    map = new google.maps.Map(document.getElementById('map'),
+  map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
       
       //////////////////////////////////////
@@ -107,9 +109,7 @@ angular.module('app.controllers', [])
       //////////////////////////////////////
       ////////////overlay//////////////////
       /////////////////////////////////////
-  
-
-  
+    
     var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(52.362200, 4.82440),
       new google.maps.LatLng(52.362605, 4.825910));
@@ -118,7 +118,7 @@ angular.module('app.controllers', [])
     var srcImage = 'img/2-A.png';
 
     overlay = new USGSOverlay(bounds, srcImage, map);
-  }
+    }
 
   /** @constructor */
   function USGSOverlay(bounds, image, map) {
@@ -178,12 +178,6 @@ angular.module('app.controllers', [])
   };
 
   google.maps.event.addDomListener(window, 'load', initMap);
-
-
-
-
-
-
 
 
 
