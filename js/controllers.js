@@ -22,22 +22,6 @@ angular.module('app.controllers', [])
     });
   }
 
- ////////button 1////////////
- $scope.showFirstFloor = function(initMap) {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showFirstFloor()',
-       template: 'Function activated.'
-    });
-  
-   
-
-
-
-
-
-  var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
-
       // Initialize the map and the custom overlay.
   function initMap() {
     var index=0;
@@ -60,6 +44,25 @@ angular.module('app.controllers', [])
     };
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
+
+
+ ////////button 1////////////
+ $scope.showFirstFloor = function(initMap) {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });
+  
+   
+
+
+
+
+
+  var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
+
+
       
       //////////////////////////////////////
       ////////////geolocation///////////////
