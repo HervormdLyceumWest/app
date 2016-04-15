@@ -31,10 +31,27 @@ angular.module('app.controllers', [])
        title: 'showFirstFloor()',
        template: 'Function activated.'
     }); 
+    var overlay;
+    USGSOverlay.prototype = new google.maps.OverlayView();
+
   
+    var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(52.362200, 4.82440),
+      new google.maps.LatLng(52.362605, 4.825910));
+
+    // The photograph is courtesy of the U.S. Geological Survey.
+    var srcImage = '1e_verdieping.png';
+
+    overlay = new USGSOverlay(bounds, srcImage, map);
+    
+
+    google.maps.event.trigger(map, 'resize');  
   }  
 
-      // Initialize the map and the custom overlay.
+  var overlay;
+    USGSOverlay.prototype = new google.maps.OverlayView();
+
+  // Initialize the map and the custom overlay.
   function initMap() {
     var index=0;
     var mapOptions = {
