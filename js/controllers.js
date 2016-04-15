@@ -6,8 +6,7 @@ angular.module('app.controllers', [])
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
 
-  var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
+ 
 
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
