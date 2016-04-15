@@ -5,10 +5,6 @@ angular.module('app.controllers', [])
   // Set HLW logo
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
-
-  var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
-
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
@@ -36,7 +32,8 @@ angular.module('app.controllers', [])
     });
   }
 
-
+   var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
     
 
       // Initialize the map and the custom overlay.
