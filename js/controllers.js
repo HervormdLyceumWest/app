@@ -135,6 +135,8 @@ angular.module('app.controllers', [])
     this.setMap(map);
   }
 
+  google.maps.event.addDomListener(window, 'load', initMap);
+
 
   USGSOverlay.prototype.onAdd = function() {
 
@@ -178,7 +180,7 @@ angular.module('app.controllers', [])
     this.div_ = null;
   };
 
-  google.maps.event.addDomListener(window, 'load', initMap);
+  
 
 
 
