@@ -8,10 +8,6 @@ angular.module('app.controllers', [])
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
- 
- ////////button 1////////////
-
-
   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showSecondFloor()',
@@ -25,13 +21,12 @@ angular.module('app.controllers', [])
     });
   }
 
-
-   $scope.showFirstFloor = function() {
+  $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });   
-}  
+  }  
 
   var overlay;
     USGSOverlay.prototype = new google.maps.OverlayView();
@@ -56,7 +51,7 @@ angular.module('app.controllers', [])
         ]
       }
     };
-  map = new google.maps.Map(document.getElementById('map'),
+    map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
       
       //////////////////////////////////////
@@ -123,7 +118,7 @@ angular.module('app.controllers', [])
     var srcImage = 'img/2-A.png';
 
     overlay = new USGSOverlay(bounds, srcImage, map);
-    }
+  }
 
   /** @constructor */
   function USGSOverlay(bounds, image, map) {
