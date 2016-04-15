@@ -165,7 +165,14 @@ angular.module('app.controllers', [])
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
  
- 
+ ////////button 1////////////
+ $scope.showFirstFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });
+    
+  }
 
   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
