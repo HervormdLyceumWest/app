@@ -23,8 +23,7 @@ angular.module('app.controllers', [])
   }
 
 
-     var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
+    
 
       // Initialize the map and the custom overlay.
   function initMap() {
@@ -105,6 +104,9 @@ angular.module('app.controllers', [])
 
 
 ////////button 1////////////
+ var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
+
  $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
