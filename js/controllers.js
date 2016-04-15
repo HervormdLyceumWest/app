@@ -58,9 +58,9 @@ angular.module('app.controllers', [])
         ]
       }
     };
-  map = new google.maps.Map(document.getElementById('map'),
+    map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
-      
+  }    
       //////////////////////////////////////
       ////////////geolocation///////////////
       /////////////////////////////////////
@@ -115,7 +115,7 @@ angular.module('app.controllers', [])
       ////////////overlay//////////////////
       /////////////////////////////////////
  
-}
+
 
 
 
