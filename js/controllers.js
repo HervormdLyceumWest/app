@@ -43,7 +43,7 @@ angular.module('app.controllers', [])
     var srcImage = '1e_verdieping.png';
 
     overlay = new USGSOverlay(bounds, srcImage, map);
-    }
+    
 
     google.maps.event.trigger(map, 'resize');  
   }  
