@@ -9,17 +9,7 @@ angular.module('app.controllers', [])
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
  
- ////////button 1////////////
- $scope.showFirstFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showFirstFloor()',
-       template: 'Function activated.'
-    });
-  
-   
-}//end button 1
-
-  $scope.showSecondFloor = function() {
+   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showSecondFloor()',
        template: 'Function activated.'
@@ -31,6 +21,18 @@ angular.module('app.controllers', [])
        template: 'Function activated.'
     });
   }
+
+ ////////button 1////////////
+ $scope.showFirstFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });
+  
+   
+
+
+
 
 
   var overlay;
@@ -185,7 +187,7 @@ angular.module('app.controllers', [])
 
 
 
-
+}//end button 1
 
 
 
