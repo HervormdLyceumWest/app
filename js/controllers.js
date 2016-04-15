@@ -5,11 +5,33 @@ angular.module('app.controllers', [])
   // Set HLW logo
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
+  /////////////////////////////////////////////
+  ////////////Floorplan Buttons///////////////
+  ///////////////////////////////////////////
+ 
+ ////////button 1////////////
 
 
+  $scope.showSecondFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showSecondFloor()',
+       template: 'Function activated.'
+    });
+  }
+  $scope.showThirdFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showThirdFloor()',
+       template: 'Function activated.'
+    });
+  }
 
-  var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
+
+  $scope.showFirstFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });   
+   
 
       // Initialize the map and the custom overlay.
   function initMap() {
@@ -87,16 +109,19 @@ angular.module('app.controllers', [])
       //////////////////////////////////////
       ////////////overlay//////////////////
       /////////////////////////////////////
+  var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
+
   
     var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(52.362200, 4.82440),
       new google.maps.LatLng(52.362605, 4.825910));
 
-    // The photograph 
+    // The photograph is courtesy of the U.S. Geological Survey.
     var srcImage = 'img/2-A.png';
 
     overlay = new USGSOverlay(bounds, srcImage, map);
-  }
+    }
 
   /** @constructor */
   function USGSOverlay(bounds, image, map) {
@@ -159,33 +184,9 @@ angular.module('app.controllers', [])
 
 
 
+} 
 
 
-  /////////////////////////////////////////////
-  ////////////Floorplan Buttons///////////////
-  ///////////////////////////////////////////
- 
- ////////button 1////////////
- $scope.showFirstFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showFirstFloor()',
-       template: 'Function activated.'
-    });
-    
-  }
-
-  $scope.showSecondFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showSecondFloor()',
-       template: 'Function activated.'
-    });
-  }
-  $scope.showThirdFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showThirdFloor()',
-       template: 'Function activated.'
-    });
-  }
 
 
 
