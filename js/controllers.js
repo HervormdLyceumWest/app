@@ -26,12 +26,12 @@ angular.module('app.controllers', [])
   }
 
 
-  $scope.showFirstFloor = function() {
+   $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });   
-   
+  }  
 
       // Initialize the map and the custom overlay.
   function initMap() {
@@ -184,7 +184,7 @@ angular.module('app.controllers', [])
 
 
 
-} 
+
 
 
 
