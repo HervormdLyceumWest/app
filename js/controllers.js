@@ -15,9 +15,7 @@ angular.module('app.controllers', [])
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });
-  
-   
-}//end button 1
+  }
 
   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
@@ -117,11 +115,11 @@ angular.module('app.controllers', [])
       new google.maps.LatLng(52.362200, 4.82440),
       new google.maps.LatLng(52.362605, 4.825910));
 
-    // The photograph is courtesy of the U.S. Geological Survey.
+    // The photograph 
     var srcImage = 'img/2-A.png';
 
     overlay = new USGSOverlay(bounds, srcImage, map);
-    }
+  }
 
   /** @constructor */
   function USGSOverlay(bounds, image, map) {
