@@ -104,14 +104,15 @@ angular.module('app.controllers', [])
 
 
 ////////button 1////////////
- var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
-
  $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });
+  
+     var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
+
   
     var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(52.362200, 4.82440),
