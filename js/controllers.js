@@ -26,12 +26,12 @@ angular.module('app.controllers', [])
   }
 
 
-   $scope.showFirstFloor = function() {
+  $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
     });   
-  }  
+   
 
       // Initialize the map and the custom overlay.
   function initMap() {
@@ -181,10 +181,10 @@ angular.module('app.controllers', [])
   };
 
   google.maps.event.addDomListener(window, 'load', initMap);
+  google.maps.event.trigger(map, 'resize');
 
 
-
-
+} 
 
 
 
