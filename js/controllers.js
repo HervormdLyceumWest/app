@@ -26,17 +26,17 @@ angular.module('app.controllers', [])
   }
 
 
-  $scope.showFirstFloor = function() {
+   $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
-    }); 
-  }  
+    });   
+}  
 
   var overlay;
     USGSOverlay.prototype = new google.maps.OverlayView();
 
-  // Initialize the map and the custom overlay.
+      // Initialize the map and the custom overlay.
   function initMap() {
     var index=0;
     var mapOptions = {
@@ -112,8 +112,7 @@ angular.module('app.controllers', [])
       //////////////////////////////////////
       ////////////overlay//////////////////
       /////////////////////////////////////
-  var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
+  
 
   
     var bounds = new google.maps.LatLngBounds(
