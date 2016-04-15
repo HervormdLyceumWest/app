@@ -23,7 +23,7 @@ angular.module('app.controllers', [])
   }
 
  ////////button 1////////////
- $scope.showFirstFloor = function() {
+ $scope.showFirstFloor = function(initMap) {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
        template: 'Function activated.'
