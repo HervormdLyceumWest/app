@@ -9,6 +9,16 @@ angular.module('app.controllers', [])
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
  
+ ////////button 1////////////
+ $scope.showFirstFloor = function() {
+    var alertPopup = $ionicPopup.alert({
+       title: 'showFirstFloor()',
+       template: 'Function activated.'
+    });
+  
+   
+}//end button 1
+
   $scope.showSecondFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showSecondFloor()',
@@ -22,7 +32,8 @@ angular.module('app.controllers', [])
     });
   }
 
-
+   var overlay;
+      USGSOverlay.prototype = new google.maps.OverlayView();
     
 
       // Initialize the map and the custom overlay.
@@ -101,17 +112,7 @@ angular.module('app.controllers', [])
       //////////////////////////////////////
       ////////////overlay//////////////////
       /////////////////////////////////////
-
-
-////////button 1////////////
- $scope.showFirstFloor = function() {
-    var alertPopup = $ionicPopup.alert({
-       title: 'showFirstFloor()',
-       template: 'Function activated.'
-    });
-  
-     var overlay;
-      USGSOverlay.prototype = new google.maps.OverlayView();
+ 
 
   
     var bounds = new google.maps.LatLngBounds(
@@ -196,7 +197,8 @@ angular.module('app.controllers', [])
 
   google.maps.event.addDomListener(window, 'load', initMap);
 
-}//end button 1
+
+
 
 
 
