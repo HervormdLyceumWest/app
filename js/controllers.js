@@ -22,7 +22,45 @@ angular.module('app.controllers', [])
     });
   }
 
+  ////////////////////////////////////////////////////////
+  ////////////Initialise GoogleMaps Canvas///////////////
+  //////////////////////////////////////////////////////
 
+  var options = {timeout: 10000, enableHighAccuracy: true};
+  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+ 
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+    var mapOptions = {
+    center: {lat: 52.362398, lng: 4.825519},
+    zoom: 19,
+    scrollwheel: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: true,
+    disableDefaultUI: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      mapTypeIds: [
+        google.maps.MapTypeId.ROADMAP,
+        google.maps.MapTypeId.TERRAIN
+        ]
+      }
+    };
+
+  map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+      
+
+<<<<<<< HEAD
+google.maps.event.addDomListener(window, 'load', initMap);
+
+
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  }); // Close Cordova Geolocation
+  
+=======
    $scope.showFirstFloor = function() {
     var alertPopup = $ionicPopup.alert({
        title: 'showFirstFloor()',
@@ -59,8 +97,37 @@ var overlay;
       //////////////////////////////////////
       ////////////geolocation///////////////
       /////////////////////////////////////
+>>>>>>> origin/gh-pages
 
 
+<<<<<<< HEAD
+  // Try HTML5 geolocation.
+  //http://jsfiddle.net/thinkingstiff/rsp22/
+  marker = null;
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+  time=setInterval(function(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position,options) {
+
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        if(marker == null) {
+          marker=new google.maps.Marker({
+            position:pos,
+            map:map,
+            optimized:false,
+            icon:'img/Blue_Ball.png'
+         })
+        }
+      marker.setPosition(pos);
+=======
     // Try HTML5 geolocation.
     //http://jsfiddle.net/thinkingstiff/rsp22/
     marker = null;
@@ -89,11 +156,48 @@ var overlay;
           }
           marker.setPosition(pos);
         },1000);
+>>>>>>> origin/gh-pages
       });
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
+<<<<<<< HEAD
+        
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+    }
+  },3000);
+
+
+
+
+
+  ////////////////////////////////////////////////////
+  ////////////Testing GEO support msgs///////////////
+  //////////////////////////////////////////////////
+/*
+  if(!!navigator.geolocation) {
+    // HTML5 geo location supported
+    console.log("HTML5 geo location supported");
+    var alertPopup = $ionicPopup.alert({
+      title: 'HTML5 geo support',
+      template: 'Yes'
+    });
+  } else {
+    // HTML5 geo location supported
+    console.log("HTML5 geo location NOT supported");
+    var alertPopup = $ionicPopup.alert({
+      title: 'HTML5 geo support',
+      template: 'No'
+    });
+  }
+ */
+=======
           
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -180,6 +284,7 @@ var overlay;
   google.maps.event.addDomListener(window, 'load', initMap);
 
 
+>>>>>>> origin/gh-pages
 
 }) // Close controller
    
