@@ -1,68 +1,31 @@
+body{
+    color: #fff !important;
+}
 #hlw-red{
     background-color: #c20e1a !important;
-    color: #fff !important;
     padding-top: 10px;
-    padding-right: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
     padding-left: 10px;
-}
-#hlw-red h1{
-    color: #fff !important;
-}
-#hlw-red h2{
-    color: #fff !important;
-}
-#hlw-red h3{
-    color: #fff !important;
 }
 #hlw-purple{
     background-color: #ad3587 !important;
-    color: #fff !important;
     padding-top: 10px;
-    padding-right: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
     padding-left: 10px;
-}
-#hlw-purple h1{
-    color: #fff !important;
-}
-#hlw-purple h2{
-    color: #fff !important;
-}
-#hlw-purple h3{
-    color: #fff !important;
 }
 #hlw-yellow{
     background-color: #f0c714 !important;
-    color: #fff !important;
     padding-top: 10px;
-    padding-right: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
     padding-left: 10px;
-}
-#hlw-yellow h1{
-    color: #fff !important;
-}
-#hlw-purple h2{
-    color: #fff !important;
-}
-#hlw-purple h3{
-    color: #fff !important;
 }
 #hlw-blue{
     background-color: #2e3d8b !important;
-    color: #fff !important;
     padding-top: 10px;
-    padding-right: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
     padding-left: 10px;
-}
-#hlw-blue h1{
-    color: #fff !important;
-}
-#hlw-blue h2{
-    color: #fff !important;
-}
-#hlw-blue h3{
-    color: #fff !important;
 }

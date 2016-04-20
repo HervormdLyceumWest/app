@@ -31,7 +31,6 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-
   var options = {timeout: 10000, enableHighAccuracy: true};
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
  
@@ -54,6 +53,7 @@ angular.module('app.controllers', [])
         ]
       }
     };
+
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
   }); // Close Cordova Geolocation
   
@@ -62,72 +62,41 @@ angular.module('app.controllers', [])
   ////////////geolocation///////////////
   //////////////////////////////////////
 
-  // Try HTML5 geolocation.
-  //http://jsfiddle.net/thinkingstiff/rsp22/
-  marker = null;
-  var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
-  time=setInterval(function(){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position,options) {
+   // Try HTML5 geolocation.
+    //http://jsfiddle.net/thinkingstiff/rsp22/
+    marker = null;
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
 
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+   if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(function(position,options) {
 
-        if(marker == null) {
-          marker=new google.maps.Marker({
-            position:pos,
-            map:map,
-            optimized:false,
-            icon:'img/Blue_Ball.png'
-         })
-        }
-      marker.setPosition(pos);
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-        
+          time=setInterval(function(){
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-                            'Error: The Geolocation service failed.' :
-                            'Error: Your browser doesn\'t support geolocation.');
-    }
-  },3000);
+            if(marker == null) {
+              marker=new google.maps.Marker({
+                position:pos,
+                map:map,
+                optimized:false,
+                icon:'media/Blue_Ball.png'
+             })
+            }
+           marker.setPosition(pos);
+          },1000);
 
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
 
-
-
-
-  ////////////////////////////////////////////////////
-  ////////////Testing GEO support msgs///////////////
-  //////////////////////////////////////////////////
-/*
-  if(!!navigator.geolocation) {
-
-    // HTML5 geo location supported
-    console.log("HTML5 geo location supported");
-    var alertPopup = $ionicPopup.alert({
-      title: 'HTML5 geo support',
-      template: 'Yes'
-    });
-  } else {
-    // HTML5 geo location supported
-    console.log("HTML5 geo location NOT supported");
-    var alertPopup = $ionicPopup.alert({
-      title: 'HTML5 geo support',
-      template: 'No'
-    });
-  }
- */
 
 }) // Close controller
    
@@ -144,4 +113,3 @@ angular.module('app.controllers', [])
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
 })
-    
