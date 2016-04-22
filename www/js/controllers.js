@@ -8,15 +8,7 @@ angular.module('app.controllers', [])
   /////////////////////////////////////////////
   ////////////Floorplan Buttons///////////////
   ///////////////////////////////////////////
-  $scope.showFirstFloor = function() {
-    showFirstFloor();
-  }
-  $scope.showSecondFloor = function() {
-    showSecondFloor();
-  }
-  $scope.showThirdFloor = function() {
-    showThirdFloor();
-  }
+ 
 
 
 
@@ -30,12 +22,8 @@ angular.module('app.controllers', [])
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
  
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
     var mapOptions = {
-    // HLW LOCATION
     center: {lat: 52.362398, lng: 4.825519},
-    // GOOGLE TEST LOCATION
-    //center: {lat: 62.323907, lng: -150.109291},
     zoom: 19,
     scrollwheel: false,
     navigationControl: false,
@@ -52,75 +40,70 @@ angular.module('app.controllers', [])
       }
     };
 
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    
+    var overlay;
+    USGSOverlay.prototype = new google.maps.OverlayView();
+
+
+
+    function showFirstFloor(){
+      map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var bounds = new google.maps.LatLngBounds(
+          new google.maps.LatLng(52.362200, 4.82440),
+          new google.maps.LatLng(52.362605, 4.825910));
+      var srcImage = 'img/2-A.png';
+      overlay = new USGSOverlay(bounds, srcImage, map);
+
+    }
+
+    function showSecondFloor(){
+      map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var bounds = new google.maps.LatLngBounds(
+          new google.maps.LatLng(52.362200, 4.82440),
+          new google.maps.LatLng(52.362605, 4.825910));
+
+      // The photograph is courtesy of the U.S. Geological Survey.
+      var srcImage = 'img/smile.png';
+
+      // The custom USGSOverlay object contains the USGS image,
+      // the bounds of the image, and a reference to the map.
+      overlay = new USGSOverlay(bounds, srcImage, map);
+
+    }
+
+    function showThirdFloor(){
+      map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var bounds = new google.maps.LatLngBounds(
+          new google.maps.LatLng(52.362200, 4.82440),
+          new google.maps.LatLng(52.362605, 4.825910));
+
+      // The photograph is courtesy of the U.S. Geological Survey.
+      var srcImage = 'img/bier.jpg';
+
+      // The custom USGSOverlay object contains the USGS image,
+      // the bounds of the image, and a reference to the map.
+      overlay = new USGSOverlay(bounds, srcImage, map);
+
+    }
+
+    new showFirstFloor();
+
+
+ $scope.showFirstFloor = function() {
+    showFirstFloor();
+  }
+  $scope.showSecondFloor = function() {
+    showSecondFloor();
+  }
+  $scope.showThirdFloor = function() {
+    showThirdFloor();
+  }
 
 
 
 
-      function showFirstFloor(){
-
-        var overlay;
-        USGSOverlay.prototype = new google.maps.OverlayView();
-
-        var bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(52.362200, 4.82440),
-            new google.maps.LatLng(52.362605, 4.825910));
-
-        // The photograph is courtesy of the U.S. Geological Survey.
-        var srcImage = 'img/2-A.png';
-
-        // The custom USGSOverlay object contains the USGS image,
-        // the bounds of the image, and a reference to the map.
-        overlay = new USGSOverlay(bounds, srcImage, map);
-
-      }
-
-      function showSecondFloor(){
-        
-        var overlay;
-        USGSOverlay.prototype = new google.maps.OverlayView();
-
-        var bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(52.362200, 4.82440),
-            new google.maps.LatLng(52.362605, 4.825910));
-
-        // The photograph is courtesy of the U.S. Geological Survey.
-        var srcImage = 'img/Blue-Ball.png';
-
-        // The custom USGSOverlay object contains the USGS image,
-        // the bounds of the image, and a reference to the map.
-        overlay = new USGSOverlay(bounds, srcImage, map);
-
-      }
-
-      function showThirdFloor(){
-        
-        var overlay;
-        USGSOverlay.prototype = new google.maps.OverlayView();
-
-        var bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(52.362200, 4.82440),
-            new google.maps.LatLng(52.362605, 4.825910));
-
-        // The photograph is courtesy of the U.S. Geological Survey.
-        var srcImage = 'img/logo.png';
-
-        // The custom USGSOverlay object contains the USGS image,
-        // the bounds of the image, and a reference to the map.
-        overlay = new USGSOverlay(bounds, srcImage, map);
-
-      }
-
-      new showFirstFloor();
-
-
-
-
-
-
-
-// START PART 2: IMAGE OVERLAY
- /** @constructor */
+      // START PART 2: IMAGE OVERLAY
+       /** @constructor */
       function USGSOverlay(bounds, image, map) {
 
         // Initialize all properties.
@@ -190,7 +173,7 @@ angular.module('app.controllers', [])
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
-// END PART2: IMAGE OVERLAY
+      // END PART2: IMAGE OVERLAY
 
 
 
