@@ -176,40 +176,7 @@ angular.module('app.controllers', [])
   ////////////Show current user position///////////////
   ////////////////////////////////////////////////////
 
-   // Try HTML5 geolocation.
-    //http://jsfiddle.net/thinkingstiff/rsp22/
-    marker = null;
-    var options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
-
-   if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(function(position,options) {
-
-          time=setInterval(function(){
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            if(marker == null) {
-              marker=new google.maps.Marker({
-                position:pos,
-                map:map,
-                optimized:false,
-                icon:'media/Blue_Ball.png'
-             })
-            }
-           marker.setPosition(pos);
-          },1000);
-
-        });
-      } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-      }
+  // Code here
     
 
 
