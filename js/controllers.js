@@ -16,7 +16,7 @@ angular.module('app.controllers', [])
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var mapOptions = {
     center: {lat: 52.362398, lng: 4.825519},
-    zoom: 11,
+    zoom: 19,
     scrollwheel: false,
     navigationControl: false,
     mapTypeControl: false,
