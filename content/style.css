@@ -1,5 +1,7 @@
 body{
     color: #fff !important;
+    padding-top: -10px !important;
+    padding-bottom: -10px !important;
 }
 #hlw-red{
     background-color: #c20e1a !important;
