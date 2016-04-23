@@ -44,7 +44,7 @@ angular.module('app.controllers', [])
 
       // Load google map
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
-      showLocation(map);
+      //showLocation(map);
 
       // Now load the right image for each floor
       if(floor==1){
