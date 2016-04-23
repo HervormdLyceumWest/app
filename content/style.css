@@ -1,33 +1,20 @@
 body{
-    color: #fff !important;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0px 0px 0px !important;
 }
-#hlw-red{
-    background-color: #c20e1a !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+.hlw{
+    margin: 0px 10px 0px 10px;
+    padding: 10px 10px 10px 10px;
+    color: #fff;
 }
-#hlw-purple{
-    background-color: #ad3587 !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+.hlw-red{
+    background-color: #c20e1a;
 }
-#hlw-yellow{
-    background-color: #f0c714 !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+.hlw-purple{
+    background-color: #ad3587;
 }
-#hlw-blue{
-    background-color: #2e3d8b !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+.hlw-yellow{
+    background-color: #f0c714;
+}
+.hlw-blue{
+    background-color: #2e3d8b;
 }
