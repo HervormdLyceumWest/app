@@ -5,14 +5,6 @@ angular.module('app.controllers', [])
   // Set HLW logo
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
-  /////////////////////////////////////////////
-  ////////////Floorplan Buttons///////////////
-  ///////////////////////////////////////////
- 
-
-
-
-
 
   ////////////////////////////////////////////////////////
   ////////////Initialise GoogleMaps Canvas///////////////
@@ -40,69 +32,74 @@ angular.module('app.controllers', [])
       }
     };
 
-    
+
+  /////////////////////////////////////////////
+  ////////////Floorplan Buttons///////////////
+  ///////////////////////////////////////////
+
     var overlay;
     USGSOverlay.prototype = new google.maps.OverlayView();
 
-
-
     function showFirstFloor(){
+      // Load google map
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      // Load floorplant overlay
       var bounds = new google.maps.LatLngBounds(
           new google.maps.LatLng(52.362200, 4.82440),
           new google.maps.LatLng(52.362605, 4.825910));
       var srcImage = 'img/2-A.png';
       overlay = new USGSOverlay(bounds, srcImage, map);
 
+
     }
 
     function showSecondFloor(){
+      // Load google map
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      // Load floorplant overlay
       var bounds = new google.maps.LatLngBounds(
           new google.maps.LatLng(52.362200, 4.82440),
           new google.maps.LatLng(52.362605, 4.825910));
-
-      // The photograph is courtesy of the U.S. Geological Survey.
       var srcImage = 'img/smile.png';
-
-      // The custom USGSOverlay object contains the USGS image,
-      // the bounds of the image, and a reference to the map.
       overlay = new USGSOverlay(bounds, srcImage, map);
+
 
     }
 
     function showThirdFloor(){
+      // Load google map
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      // Load floorplant overlay
       var bounds = new google.maps.LatLngBounds(
           new google.maps.LatLng(52.362200, 4.82440),
           new google.maps.LatLng(52.362605, 4.825910));
-
-      // The photograph is courtesy of the U.S. Geological Survey.
       var srcImage = 'img/bier.jpg';
-
-      // The custom USGSOverlay object contains the USGS image,
-      // the bounds of the image, and a reference to the map.
       overlay = new USGSOverlay(bounds, srcImage, map);
+
 
     }
 
     new showFirstFloor();
 
 
- $scope.showFirstFloor = function() {
-    showFirstFloor();
-  }
-  $scope.showSecondFloor = function() {
-    showSecondFloor();
-  }
-  $scope.showThirdFloor = function() {
-    showThirdFloor();
-  }
+     $scope.showFirstFloor = function() {
+        showFirstFloor();
+      }
+      $scope.showSecondFloor = function() {
+        showSecondFloor();
+      }
+      $scope.showThirdFloor = function() {
+        showThirdFloor();
+      }
 
 
+  //////////////////////////////////////////////
+  ////////////Image overlay code///////////////
+  ////////////////////////////////////////////
 
-
-      // START PART 2: IMAGE OVERLAY
        /** @constructor */
       function USGSOverlay(bounds, image, map) {
 
@@ -173,16 +170,50 @@ angular.module('app.controllers', [])
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
-      // END PART2: IMAGE OVERLAY
 
 
+  //////////////////////////////////////////////////////
+  ////////////Show current user position///////////////
+  ////////////////////////////////////////////////////
+
+   // Try HTML5 geolocation.
+    //http://jsfiddle.net/thinkingstiff/rsp22/
+    marker = null;
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+   if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(function(position,options) {
+
+          time=setInterval(function(){
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            if(marker == null) {
+              marker=new google.maps.Marker({
+                position:pos,
+                map:map,
+                optimized:false,
+                icon:'media/Blue_Ball.png'
+             })
+            }
+           marker.setPosition(pos);
+          },1000);
+
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    
 
 
   }); // Close Cordova Geolocation
-
-
-
-
 }) // Close controller
    
 .controller('agendaCtrl', function($scope) {
