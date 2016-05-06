@@ -5,7 +5,10 @@ angular.module('app.controllers', [])
   // Set HLW logo
   $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
 
-
+  // Geolocation.watchPosition() only works over https.
+  if (window.location.protocol != "https:"){
+    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+  }
   ////////////////////////////////////////////////////////
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
