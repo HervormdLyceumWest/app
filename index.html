@@ -16,6 +16,12 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
+    <script>
+      // Geolocation.watchPosition() only works over https.
+      if (window.location.protocol != "https:"){
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/routes.js"></script>
