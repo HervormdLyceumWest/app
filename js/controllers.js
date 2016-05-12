@@ -77,7 +77,7 @@ angular.module('app.controllers', [])
         marker = new google.maps.Marker({
           map: map,
           position: coords,
-          icon: 'img/backpack.png' // null = default icon
+          icon: 'img/backpack_small.png' // null = default icon
         });
       }
       function error(err) {
