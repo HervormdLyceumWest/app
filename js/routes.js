@@ -9,8 +9,18 @@ $ionicConfigProvider.tabs.position('bottom'); //top
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+
+
+  .state('tabsController.start', {
+    url: '/start',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/start.html',
+        controller: 'startCtrl'
+      }
+    }
+  })
 
   .state('tabsController.plattegrond', {
     url: '/plattegrond',
@@ -48,8 +58,8 @@ $ionicConfigProvider.tabs.position('bottom'); //top
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/page1/plattegrond')
+$urlRouterProvider.otherwise('/page1/start')
 
-  
+
 
 });

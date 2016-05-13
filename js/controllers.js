@@ -1,9 +1,16 @@
 angular.module('app.controllers', [])
 
+.controller('startCtrl', function($scope, $location) {
+
+  // Set HLW logo
+  $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
+
+})
+
 .controller('plattegrondCtrl', function($scope, $state, $cordovaGeolocation, $ionicPopup, $timeout) {
 
   // Set HLW logo
-  $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
+  $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
   ////////////////////////////////////////////////////////
   ////////////Initialise GoogleMaps Canvas///////////////
@@ -69,6 +76,10 @@ angular.module('app.controllers', [])
       // Create floorplan overlay (step 2/3)
       overlay = new USGSOverlay(bounds, srcImage, map);
 
+      // Step 3: geolocation (WORKING BUT DISABLED)
+      // Uncomment following code to enable geolocation
+      /*
+
       // Prepare the marker
       function setMarker(pos) {
         var lat = pos.coords.latitude,
@@ -88,8 +99,7 @@ angular.module('app.controllers', [])
         });
       }
 
-
-      // Create current location marker (step 3/3)
+      // Create current location marker
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setMarker, error);
 
@@ -103,7 +113,10 @@ angular.module('app.controllers', [])
       } else {
         alert("Your browser does not support the Geolocation API");
       }
-    }
+      */
+
+
+    } // Close buildMapWithOverlay
 
 
     // Initiliaze
@@ -203,13 +216,13 @@ angular.module('app.controllers', [])
 .controller('agendaCtrl', function($scope) {
 
   // Set HLW logo
-  $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
+  $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
 })
 
 .controller('informatieCtrl', function($scope) {
 
   // Set HLW logo
-  $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
+  $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
 })
