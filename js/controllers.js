@@ -49,21 +49,21 @@ angular.module('app.controllers', [])
         var bounds = new google.maps.LatLngBounds(
             new google.maps.LatLng(52.361950, 4.82385),
             new google.maps.LatLng(52.362805, 4.827310));
-        var srcImage = 'img/beganegrond.jpg';
+        var srcImage = 'img/beganegrond.png';
       }
 
       if (floor==2){
         var bounds = new google.maps.LatLngBounds(
             new google.maps.LatLng(52.361950, 4.82385),
             new google.maps.LatLng(52.362805, 4.827310));
-        var srcImage = 'img/1e_verdieping.jpg';
+        var srcImage = 'img/1e_verdieping.png';
       }
 
       if (floor==3){
         var bounds = new google.maps.LatLngBounds(
             new google.maps.LatLng(52.361950, 4.82385),
             new google.maps.LatLng(52.362805, 4.827310));
-        var srcImage = 'img/2e_verdieping.jpg';
+        var srcImage = 'img/2e_verdieping.png';
       }
 
       // Create floorplan overlay (step 2/3)
