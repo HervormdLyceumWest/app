@@ -2,24 +2,19 @@ body{
     margin: 10px 0px 0px 0px !important;
 }
 .hlw{
-    width: 100%;
     margin: 0px 10px 0px 10px;
-    padding: 10px 10px 10px 10px;
+    padding: 1px 10px 10px 1px;
     color: #fff;
 }
 .hlw-red{
-    width: 100%;
     background-color: #c20e1a;
 }
 .hlw-purple{
-    width: 100%;
     background-color: #ad3587;
 }
 .hlw-yellow{
-    width: 100%;
     background-color: #f0c714;
 }
 .hlw-blue{
-    width: 100%;
     background-color: #2e3d8b;
 }
