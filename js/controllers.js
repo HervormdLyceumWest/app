@@ -15,9 +15,6 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-  var options = {timeout: 10000, enableHighAccuracy: true};
-  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
-
 
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var mapOptions = {
@@ -210,7 +207,6 @@ angular.module('app.controllers', [])
         this.div_ = null;
       };
 
-  }); // Close Cordova Geolocation
 }) // Close controller
 
 .controller('agendaCtrl', function($scope) {
