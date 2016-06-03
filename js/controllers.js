@@ -6,12 +6,7 @@ angular.module('app.controllers', [])
   $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
 })
-
-/* ENABLE THIS IF U WANT TO USE GEOLOCATION TRACKING
-//.controller('plattegrondCtrl', function($scope, $state, $cordovaGeolocation, $ionicPopup, $timeout) {
-*/
-// ELSE USE THIS::
-.controller('plattegrondCtrl', function($scope, $state) {
+.controller('plattegrondCtrl', function($scope, $state, $cordovaGeolocation, $ionicPopup, $timeout) {
 
   // Set HLW logo
   $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
@@ -20,10 +15,9 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-  /* ENABLE THIS IF U WANT TO USE GEOLOCATION TRACKING
   var options = {timeout: 10000, enableHighAccuracy: true};
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
-  */
+
 
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var mapOptions = {
@@ -216,10 +210,7 @@ angular.module('app.controllers', [])
         this.div_ = null;
       };
 
-  /* ENABLE THIS IF U WANT TO USE GEOLOCATION TRACKING
   }); // Close Cordova Geolocation
-  */
-
 }) // Close controller
 
 .controller('agendaCtrl', function($scope) {
