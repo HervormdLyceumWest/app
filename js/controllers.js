@@ -15,7 +15,7 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
-  var options = {timeout: 10000, enableHighAccuracy: true};
+  var options = {timeout: 1000, enableHighAccuracy: true};
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
 
 
@@ -77,8 +77,6 @@ angular.module('app.controllers', [])
       overlay = new USGSOverlay(bounds, srcImage, map);
 
       // Step 3: geolocation (WORKING BUT DISABLED)
-      // ENABLE THIS IF U WANT TO USE GEOLOCATION TRACKING
-      /*
 
       // Prepare the marker
       function setMarker(pos) {
@@ -113,7 +111,7 @@ angular.module('app.controllers', [])
       } else {
         alert("Your browser does not support the Geolocation API");
       }
-      */
+
 
 
     } // Close buildMapWithOverlay
