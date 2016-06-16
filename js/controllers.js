@@ -7,7 +7,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('plattegrondCtrl', function($scope, $state, $cordovaGeolocation, $ionicPopup, $timeout) {
+.controller('plattegrondCtrl', function($scope, $state, $ionicPopup, $timeout) {
 
   // Set HLW logo
   $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
@@ -21,25 +21,9 @@ angular.module('app.controllers', [])
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       }); // Close Cordova Geolocation
-  */
+*/
 
-    var mapOptions = {
-    center: {lat: 52.362398, lng: 4.825519},
-    zoom: 19,
-    scrollwheel: false,
-    navigationControl: false,
-    mapTypeControl: false,
-    scaleControl: false,
-    draggable: true,
-    disableDefaultUI: true,
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-      mapTypeIds: [
-        google.maps.MapTypeId.ROADMAP,
-        google.maps.MapTypeId.TERRAIN
-        ]
-      }
-    };
+
 
 
   ////////////////////////////////////////////////////////
@@ -50,6 +34,24 @@ angular.module('app.controllers', [])
     USGSOverlay.prototype = new google.maps.OverlayView();
 
     function buildMapWithOverlay(floor){
+
+      var mapOptions = {
+      center: {lat: 52.362398, lng: 4.825519},
+      zoom: 19,
+      scrollwheel: false,
+      navigationControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      draggable: true,
+      disableDefaultUI: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        mapTypeIds: [
+          google.maps.MapTypeId.ROADMAP,
+          google.maps.MapTypeId.TERRAIN
+          ]
+        }
+      };
 
       // Initialize google map (step 1/3)
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -81,38 +83,6 @@ angular.module('app.controllers', [])
 
       // Step 3: geolocation (WORKING BUT DISABLED)
       // Uncomment following code to enable geolocation
-
-
-      // Prepare the marker
-      function setMarker(pos) {
-        var lat = pos.coords.latitude,
-            lng = pos.coords.longitude;
-        coords = new google.maps.LatLng(lat, lng);
-        marker = new google.maps.Marker({
-          map: map,
-          position: coords,
-          icon: 'img/backpack.png' // null = default icon
-        });
-      }
-      function error(err) {
-        // Pop error if HTML5 geolocation is not supported
-        console.log(err);
-      }
-
-      // Create current location marker
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(setMarker, error);
-
-        navigator.geolocation.watchPosition(function (pos) {
-              var lat = pos.coords.latitude,
-                  lng = pos.coords.longitude;
-              coords = new google.maps.LatLng(lat, lng);
-              marker.setPosition(coords);
-            }, error);
-
-      } else {
-        alert("Your browser does not support the Geolocation API");
-      }
 
 
     } // Close buildMapWithOverlay
