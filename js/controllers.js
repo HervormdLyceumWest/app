@@ -6,19 +6,22 @@ angular.module('app.controllers', [])
   $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
 })
+
 .controller('plattegrondCtrl', function($scope, $state, $cordovaGeolocation, $ionicPopup, $timeout) {
 
   // Set HLW logo
-  $scope.pageTitle = "<img src=\"img/logo.png\" width=\"110px\" height=\"36px\">";
+  $scope.pageTitle = "<a href=\"#/page1/start\"><img src=\"img/logo.png\" width=\"110px\" height=\"36px\"><a>";
 
   ////////////////////////////////////////////////////////
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
   var options = {timeout: 10000, enableHighAccuracy: true};
-  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
 
+  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      }); // Close Cordova Geolocation
+
     var mapOptions = {
     center: {lat: 52.362398, lng: 4.825519},
     zoom: 19,
@@ -75,6 +78,10 @@ angular.module('app.controllers', [])
       // Create floorplan overlay (step 2/3)
       overlay = new USGSOverlay(bounds, srcImage, map);
 
+      // Step 3: geolocation (WORKING BUT DISABLED)
+      // Uncomment following code to enable geolocation
+
+
       // Prepare the marker
       function setMarker(pos) {
         var lat = pos.coords.latitude,
@@ -83,19 +90,15 @@ angular.module('app.controllers', [])
         marker = new google.maps.Marker({
           map: map,
           position: coords,
-          icon: 'img/transparent_pixel.png' // null = default icon
+          icon: 'img/backpack.png' // null = default icon
         });
       }
       function error(err) {
         // Pop error if HTML5 geolocation is not supported
-        $ionicPopup.alert({
-          title: err.code,
-          template: err.message
-        });
+        console.log(err);
       }
 
-
-      // Create current location marker (step 3/3)
+      // Create current location marker
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setMarker, error);
 
@@ -109,7 +112,9 @@ angular.module('app.controllers', [])
       } else {
         alert("Your browser does not support the Geolocation API");
       }
-    }
+
+
+    } // Close buildMapWithOverlay
 
 
     // Initiliaze
@@ -203,7 +208,7 @@ angular.module('app.controllers', [])
         this.div_ = null;
       };
 
-  }); // Close Cordova Geolocation
+
 }) // Close controller
 
 .controller('agendaCtrl', function($scope) {
