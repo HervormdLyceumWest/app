@@ -5,13 +5,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Opendag HLW</title>
 
-    <script>
-      // Geolocation.watchPosition() only works over https.
-      if (window.location.protocol != "https:"){
-        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-      }
-    </script>
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
@@ -32,35 +25,36 @@
     <!-- Google maps dependencies -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyADP-ZNd725JC2tAWGjFeuIZz3PsyqhQG4"></script>
 
-    <!-- Only required for Tab projects w/ pages in multiple tabs
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
-    -->
+    <script>
+      // Geolocation.watchPosition() only works over https.
+      if (window.location.protocol != "https:"){
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
 
-
-
-<style>
-.scroll-issue {
-    height: 100%;
-    -webkit-overflow-scrolling: touch !important;
-    overflow: scroll !important;
-}
-
-#map {
-    width: 100%;
-    height: 100%;
-}
-</style>
+    <style>
+    .scroll-issue {
+        height: 100%;
+        -webkit-overflow-scrolling: touch !important;
+        overflow: scroll !important;
+    }
+    .scroll {
+        height: 100%;
+    }
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
-  <div>
     <div>
+      <div>
         <ion-nav-bar class="bar-light"></ion-nav-bar>
         <ion-nav-view></ion-nav-view>
+      </div>
     </div>
-</div>
-
-
-
   </body>
 </html>

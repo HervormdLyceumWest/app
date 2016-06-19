@@ -16,11 +16,12 @@ angular.module('app.controllers', [])
   ////////////Initialise GoogleMaps Canvas///////////////
   //////////////////////////////////////////////////////
 
+  /*
   var options = {timeout: 10000, enableHighAccuracy: true};
-
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       }); // Close Cordova Geolocation
+*/
 
     var mapOptions = {
     center: {lat: 52.362398, lng: 4.825519},
